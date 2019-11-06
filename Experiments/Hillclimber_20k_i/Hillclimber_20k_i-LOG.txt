@@ -1,0 +1,20 @@
+EXPERIMENT Hillclimber_20k_i LOG
+DATE Tue Nov  5 14:02:30 2019
+
+STOP CONDITION 20000 iterations
+
+LIST OF PAINTINGS (2)
+paintings/mondriaan2-180-240.png
+paintings/starrynight-240-180.png
+
+POLYS 1 [250]
+
+REPETITIONS 2
+
+RESULTING IN A TOTAL OF 4 RUNS
+
+STARTING EXPERIMENT NOW!
+Tue Nov  5 14:05:32 2019 finished run 1/4 n: 0 poly: 250 painting: mondriaan2 in 3.0483782490094504 minutes
+Tue Nov  5 14:08:53 2019 finished run 2/4 n: 1 poly: 250 painting: mondriaan2 in 3.335169553756714 minutes
+Tue Nov  5 14:23:19 2019 finished run 3/4 n: 0 poly: 250 painting: starrynight in 14.433742598692577 minutes
+Tue Nov  5 14:26:04 2019 finished run 4/4 n: 1 poly: 250 painting: starrynight in 2.7502777695655825 minutes

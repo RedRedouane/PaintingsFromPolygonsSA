@@ -1,0 +1,20 @@
+EXPERIMENT c50_test_5k_i_5_poly LOG
+DATE Tue Nov  5 15:30:54 2019
+
+STOP CONDITION 5000 iterations
+
+LIST OF PAINTINGS (2)
+paintings/mondriaan2-180-240.png
+paintings/starrynight-240-180.png
+
+POLYS 1 [5]
+
+REPETITIONS 2
+
+RESULTING IN A TOTAL OF 4 RUNS
+
+STARTING EXPERIMENT NOW!
+Tue Nov  5 15:30:58 2019 finished run 1/4 n: 0 poly: 5 painting: mondriaan2 in 0.06733316580454508 minutes
+Tue Nov  5 15:31:01 2019 finished run 2/4 n: 1 poly: 5 painting: mondriaan2 in 0.05629641612370809 minutes
+Tue Nov  5 15:31:04 2019 finished run 3/4 n: 0 poly: 5 painting: starrynight in 0.05687628189722697 minutes
+Tue Nov  5 15:31:08 2019 finished run 4/4 n: 1 poly: 5 painting: starrynight in 0.05901579856872559 minutes
