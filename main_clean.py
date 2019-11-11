@@ -21,7 +21,7 @@ def experiment(name, algorithm, paintings, repetitions, polys, iterations, savep
     total_runs = len(polys) * len(paintings) * repetitions
 
     # logging a lot of metadata
-    logfile = name+"/"+name+"-LOG.txt"
+    logfile = new_name+"/"+name+"-LOG.txt"
     with open(logfile, 'a') as f:
         f.write("EXPERIMENT " + name + " LOG\n")
         f.write("DATE " + now + "\n\n")
@@ -36,7 +36,7 @@ def experiment(name, algorithm, paintings, repetitions, polys, iterations, savep
         f.write("STARTING EXPERIMENT NOW!\n")
 
     # initializing the main datafile
-    datafile = name+"/"+name + "-DATA.csv"
+    datafile = new_name+"/"+name + "-DATA.csv"
     header = ["Painting", "Vertices", " Replication", "MSE"]
     with open(datafile, 'a', newline = '') as f:
         writer = csv.writer(f)
@@ -50,7 +50,7 @@ def experiment(name, algorithm, paintings, repetitions, polys, iterations, savep
             for repetition in range(repetitions):
                 tic = time.time()
                 # make a directory for this run, containing the per iteration data and a selection of images
-                outdir = name + "/" + str(exp) + "-" + str(repetition) + "-" + str(poly) + "-" + painting_name
+                outdir = new_name + "/" + str(exp) + "-" + str(repetition) + "-" + str(poly) + "-" + painting_name
                 os.makedirs(outdir)
 
                 # Set image in np values
@@ -78,20 +78,19 @@ def experiment(name, algorithm, paintings, repetitions, polys, iterations, savep
 
                 exp += 1
 
-name = "1miltest.x2"
-paintings = ["paintings/monalisa-240-180.png", "paintings/bach-240-180.png", "paintings/dali-240-180.png", "paintings/mondriaan2-180-240.png", "paintings/pollock-240-180.png", "paintings/starrynight-240-180.png", "paintings/kiss-180-240.png"]
-paintings = ["paintings/mondriaan2-180-240.png"]
+paintings = ["paintings/monalisa-240-180.png", "paintings/bach-240-180.png", "paintings/dali-240-180.png", "paintings/mondriaan-180-240.png", "paintings/pollock-240-180.png", "paintings/starrynight-240-180.png", "paintings/kiss-180-240.png", "paintings/vrouw-met-de-hermelein-240-180.png", "paintings/salvator-mundi-240-180.png"]
+# paintings = ["paintings/mondriaan-180-240.png"]
 # Define a list of savepoints, more in the first part of the run, and less later.
 savepoints = list(range(0, 250000, 1000)) + list(range(250000, 1000000, 10000))
-repetitions = 2
+repetitions = 1
 polys = [250]
-iterations = 10000
+iterations = 1000000
 
 # Experiment name.
-names = ["c50_10ki_250poly_path_test"]
+names = ["50c_lisa_run", "50c_lisa_run2", "50c_lisa_run3"]
 
 if __name__ == '__main__':
-    worker_count = 1
+    worker_count = 3
     for i in range(worker_count):
         args = (names[i], "SA", paintings, repetitions, polys, iterations, savepoints)
         p = Process(target=experiment, args=args)

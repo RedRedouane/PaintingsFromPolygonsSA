@@ -88,7 +88,9 @@ class SA(Algorithm):
                 self.best.generation = i
                 self.best.save_img(self.outdirectory)
                 self.best.save_polygons(self.outdirectory)
+                self.save_data([self.num_poly, i, self.best.fitness, self.current.fitness])
 
-            self.save_data([self.num_poly, i, self.best.fitness, self.current.fitness])
-
-        # self.best.save_img(self.outdirectory)
+        self.best.generation = i
+        self.best.save_img(self.outdirectory)
+        self.best.save_polygons(self.outdirectory)
+        self.save_data([self.num_poly, i, self.best.fitness, self.current.fitness])
