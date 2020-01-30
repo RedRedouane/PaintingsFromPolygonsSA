@@ -50,13 +50,9 @@ class SA(Algorithm):
     def acceptance_probability(self, dE, T):
         return np.exp(-dE/T)
 
-    def cooling_geman(self, i):
-        # what to pick for C?
-        # d is usually set to one according to Nourani & Andresen (1998)
-        c = 195075
-        d = 1
-
-        return c/math.log(i + d)
+    def cooling_sigmoid(self, i):
+        t = 1000/(1 + np.exp(0.00001 * (i - 500000)))
+        return t
 
     def run(self):
         for i in range(1, self.iterations):
@@ -68,7 +64,7 @@ class SA(Algorithm):
             james.calculate_fitness_mse(self.goalpx)
 
             dE = james.fitness - self.current.fitness
-            T = self.cooling_geman(i)
+            T = self.cooling_sigmoid(i)
 
             acceptance = self.acceptance_probability(dE, T)
 

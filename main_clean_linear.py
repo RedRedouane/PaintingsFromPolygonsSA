@@ -1,6 +1,6 @@
 from PIL import Image
 import numpy as np
-from algorithms_clean import Algorithm, SA
+from algorithms_clean_linear import Algorithm, SA
 import time
 import os
 import csv
